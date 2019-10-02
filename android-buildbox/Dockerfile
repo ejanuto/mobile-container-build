@@ -21,4 +21,4 @@ RUN echo "export ANDROID_HOME=$HOME/android-sdk" >> ~/.bashrc
 RUN echo "export PATH=\$PATH:\$ANDROID_HOME/tools/bin" >> ~/.bashrc
 RUN echo "export PATH=\$PATH:\$ANDROID_HOME/platform-tools" >> ~/.bashrc
 
-RUN echo 'y' | /root/android-sdk/tools/bin/fsdkmanager "system-images;android-23;google_apis;x86_64" "tools" "platform-tools" "platforms;android-25" "build-tools;25.0.2" "emulator"
+RUN echo 'y' | /root/android-sdk/tools/bin/sdkmanager "system-images;android-23;google_apis;x86_64" "tools" "platform-tools" "platforms;android-25" "build-tools;25.0.2" "emulator"

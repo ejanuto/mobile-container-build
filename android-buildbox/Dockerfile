@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 LABEL maintainer="janusz.tomanek@symphony.com"
 WORKDIR /root
 
-RUN apt-get update && apt-get -y install openssl maven vim openjdk-8-jdk wget unzip
+RUN apt-get update && apt-get -y install openssl maven vim openjdk-8-jdk wget unzip cpu-checker
 RUN update-java-alternatives -s java-1.8.0-openjdk-amd64
 RUN mkdir -p ~/.m2
 COPY src/settings.xml ~/.m2/settings.xlm
@@ -21,4 +21,4 @@ RUN echo "export ANDROID_HOME=$HOME/android-sdk" >> ~/.bashrc
 RUN echo "export PATH=\$PATH:\$ANDROID_HOME/tools/bin" >> ~/.bashrc
 RUN echo "export PATH=\$PATH:\$ANDROID_HOME/platform-tools" >> ~/.bashrc
 
-RUN echo 'y' | /root/android-sdk/tools/bin/sdkmanager "system-images;android-23;google_apis;x86_64" "tools" "platform-tools" "platforms;android-25" "build-tools;25.0.2"
+RUN echo 'y' | /root/android-sdk/tools/bin/fsdkmanager "system-images;android-23;google_apis;x86_64" "tools" "platform-tools" "platforms;android-25" "build-tools;25.0.2" "emulator"
